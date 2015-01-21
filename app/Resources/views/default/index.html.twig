@@ -1,0 +1,350 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="section1"><!--/Bannière -->
+      <div id="banner">
+        <div class="container">
+          <div class="middle">
+            <h1 class="text-uppercase">Everything you need to create<br>an exceptional website</h1>
+            <p class="white">Free 14-day trial with 24/7 support. No credit card required.</p>
+            <button class="btn-yellow">Get started</button>
+            <a href="#" class="btn white">Watch demo</a><span class="glyphicon glyphicon-expand"></span>
+          </div>
+          <div class="artist">
+            <span>Sara Blake &nbsp |</span><br>
+            <span style="font-family:bold;color:#B3AFAF">Fine Artist </span><span>&nbsp &nbsp  |</span>
+          </div>
+        </div>
+      </div>
+        <div class="container">
+          <div class="row">
+            <h3 class="title">As featured in</h3>
+            <div class="margeBig"><img src="{{ asset('img/press/press-logo-fastco.png') }}" alt="fastco"></div>
+            <div class="margeBig"><img src="{{ asset('img/press/press-logo-time.png') }}" alt="time"></div>
+            <div class="margeBig"><img src="{{ asset('img/press/press-logo-forbes.png') }}" alt="forbes"></div>
+            <div class="margeBig"><img src="{{ asset('img/press/press-logo-techcrunch.png') }}" alt="techcrunch"></div>
+            <div class="margeBig"><img src="{{ asset('img/press/press-logo-pandodaily.png') }}" alt="pandodaily"></div>
+            <div class="margeBig"><img src="{{ asset('img/press/press-logo-betabeat.png') }}" alt="betabeat"></div>
+          </div>
+        </div>
+    </section>
+      <section class="section2"><!--/Section 1 -->
+        <div class="container">
+          <div class="row row-centered">
+              <div class="col-sm-6 col-centered">
+              <h3 class="text-uppercase">STUNNING DESIGNS FROM THE START</h3>
+                <hr>
+                <p>Art.space starts you with beatiful templates right out of the box - each handcrafted by our award-winning design team to make your content satnd out</p>
+                <br>
+              </div>
+          </div>
+        </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="slider-mac">
+                  <div id="carousel-slider-start" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-slider-start" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-slider-start" data-slide-to="1"></li>
+                    <li data-target="#carousel-slider-start" data-slide-to="2"></li>
+                    <li data-target="#carousel-slider-start" data-slide-to="3"></li>
+                    <li data-target="#carousel-slider-start" data-slide-to="4"></li>
+                    <li data-target="#carousel-slider-start" data-slide-to="5"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/slider_start/img1.png') }}" alt="0">
+                      <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/slider_start/img2.png') }}" alt="1">
+                      <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/slider_start/img3.png') }}" alt="2">
+                      <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/slider_start/img4.png') }}" alt="3">
+                      <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/slider_start/img5.png') }}" alt="4">
+                      <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/slider_start/img6.png') }}" alt="5">
+                      <div class="carousel-caption"></div>
+                    </div>
+                  </div>
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-slider-start" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-slider-start" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+        </section>
+        <section class="section1"><!--/Section 2 -->
+          <div class="container">
+            <div class="row row-centered">
+              <div class="col-sm-12">
+              <h3 class="text-uppercase">pages, GALLERIES, and BLOGS.<br> all in one PLATFORM.</h3>
+              <hr>
+                <p>Whether you need simple pages, sophiticated galleries, or a professional blog - or any combination of each of those - it all comes standard with your website.</p>
+                <img src="{{ asset('img/tour/tour-all-in-one.png') }}" class="img-responsive" alt="all-in-one">
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section2"><!--/Section 3 -->
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-12">
+              <h3>INTRODUCING LAYOUTENGINE.<br> A NEW PAGE BUILDER FROM ARTSPACE.</h3>
+              <hr class="separation">
+                <p>Our revolutionary LayoutEngine technology gives you the freedom to create visually rich pages with any configuration of text, images, or blocks by dragging items exactly where you want them. We lay things out in a perfect grid, so everything is always aligned</p><br><br>
+                <img src="{{ asset('img/tour/tour-layoutengine-video-poster.jpg') }}" class="img-responsive" alt="layoutengine-video-poster">
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section1"><!--/Section 4 -->
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-12">
+              <h3 class="text-uppercase">GALLERIES WITH CUTTING-EDGE CREATIVE TOOLS.</h3>
+              <hr class="separation">
+                <p>Our photo galleries come with nexr-generation features you'll love. Enjoy easy uploading by dragging files from your desktop into the brownser. Edit images any time you want with Aviary. Select the focal point of each image, ensuring the best crop possible.</p>
+                <img src="{{ asset('img/tour/tour-gallery.jpg') }}" class="img-responsive" alt="gallery">
+                <br>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section2"><!--/Section 5 -->
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-12">
+              <h3 class="text-uppercase">STATE-OF-THE-ART BLOGGING.</h3>
+              <hr class="separation">
+                <p>Effortlessly create content with our Page Builder and gallery system. Share easily,map posts with native geolocation, and use our bookmarklet to reblog content from the web.</p>
+              </div>
+            </article>
+          </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="browser_top img-responsive"></div>
+                    <div id="carousel-slider-blog" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-slider-blog" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-slider-blog" data-slide-to="1"></li>
+                    <li data-target="#carousel-slider-blog" data-slide-to="2"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/slider_blog/tour-blog-backend.jpg') }}" alt="blog-backend">
+                      <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/slider_blog/tour-blog-frontend.jpg') }}" alt="blog-frontend">
+                      <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/slider_blog/tour-blog-frontend-dialog.jpg') }}" alt="blog-frontend-dialog">
+                      <div class="carousel-caption"></div>
+                    </div>
+                  </div>
+
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-slider-blog" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-slider-blog" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+              <div class="browser_bottom"></div>
+            </div>
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-4">
+                <h3 class="text-uppercase">IMPORT SEAMLESSLY</h3>
+                <p>Start where you left off by importing all your content from Wordpress, Tumblr, Posterous, Blogger, and Squarespace 5.</p><br>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-wordpress-24-dark.png') }}" alt="wordpress"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-tumblr-24-dark.png') }}" alt="tumblr"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-posterous-24-dark.png') }}" alt="posterous"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-blogger-24-dark.png') }}" alt="blogger"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-artspace-24-dark.png') }}" alt="artspace"></div>
+              </div>
+              <div class="col-sm-4">
+                <h3 class="text-uppercase">PUSH CONTENT OUT</h3>
+                <p>Publicize your freshest content by seting your blog to auto-publish to all of your favorite social networks.</p><br><br>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-facebook-24-dark.png') }}" alt="facebook"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-twitter-24-dark.png') }}" alt="twitter"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-google-24-dark.png') }}" alt="google"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-tumblr-24-dark.png') }}" alt="tumblr"></div>
+              </div>
+              <div class="col-sm-4">
+                <h3 class="text-uppercase">SHARE BUTTONS</h3>
+                <p>Make it easy to share your content across the web by adding the social buttons you know your visitors use.</p><br><br>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-facebook-24-dark.png') }}" alt="facebook"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-twitter-24-dark.png') }}" alt="twitter"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-google-24-dark.png') }}" alt="google"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-linkedin-24-dark.png') }}" alt="linkedin"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-stumbleupon-24-dark.png') }}" alt="stumbleupon"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-reddit-24-dark.png') }}" alt="reddit"></div>
+                <div class="margeSmall"><img src="{{ asset('img/icon/icon-pinterest-24-dark.png') }}" alt="pinterest"></div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section1"><!--/Section 6 -->
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-12">
+              <h3 class="text-uppercase">THE CUSTOM LOOK YOU WANT.</h3>
+              <hr class="separation">
+                <p>Make any template your own with a few clicks in the style editor. Choose a preset color palette or select your own fonts, colors, and layours to create the custom look you want.</p>
+                <img src="{{ asset('img/tour/tour-style-editor.jpg') }}" class="img-responsive" alt="style-editor">
+                <br>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section2"><!--/Section 7 -->
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-6">
+                <h3 class="text-uppercase">MOBILE SITES BUILT RIGHT IN</h3>
+                <hr class="separation">
+                <p>Each template includes a unique mobile design, so anyone can see the beauty of your work anytime, anyplace, on any device.</p>
+                <img src="{{ asset('img/tour/tour-mobile-logos.png') }}" alt="os">
+              </div>
+              <div class="col-sm-6">
+              <br>
+              <img src="{{ asset('img/tour/tour-mobile.png') }}" class="img-responsive" alt="tour-mobile">
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section1"><!--/Section 8 -->
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-9">
+                <h3 class="text-uppercase">connect WITH THE SERVICE YOU LOVE</h3>
+                <hr class="separation">
+                <p>Make your website the center of your online identity and social life on the web with an array of powerfull tools.</p>
+              </div>
+              <div class="col-sm-9">
+              <br>
+              <img src="{{ asset('img/tour/tour-social-blob.png') }}" class="img-responsive" alt="tour-mobile">
+              <br>
+              </div>
+              <div class="col-sm-3">
+              <br><br><br><br><br>
+                <h5 class="text-uppercase"><strong>IMPORT</strong></h5>
+                <p>Automatically pull in your latest Twitter stream and Instagram photos to be beautifully displayed on your site .</p>
+                <br>
+                <h5 class="text-uppercase"><strong>sync</strong></h5>
+                <p>Take any page or gallery from your site and seamlessly publish it on your Facebook Page</p>
+                <br>
+                <h5 class="text-uppercase"><strong>PUBLISH</strong></h5>
+                <p>Let your blog automatically tweet for you whenever you post something new.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section2"><!--/Section 9 -->
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-6">
+              <img src="{{ asset('img/tour/tour-comments.png') }}" class="img-responsive" alt="tour-comments">
+              </div>
+              <div class="col-sm-6">
+              <h3 class="text-uppercase">POWERFUL COMMENTING</h3>
+              <hr class="separation">
+                <p>Make any template your own with a few clicks in the style editor. Choose a preset color palette or select your own fonts, colors, and layours to create the custom look you want.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section1"><!--/Section 10 -->
+          <div class="container">
+            <article class="row">
+              <div class="col-sm-12">
+                <h3>REAL-TIME STATISTICS FOR AUDIENCE INSIGHT</h3>
+                <hr class="separation">
+                <p>Access your built-in analytics to view the traffic and behavior of visiors in real-time. Learn where they're coming from, and what keywords theyr using to find you.</p>
+                <div class="sprite">
+                  <div class="browser_top img-responsive"></div>
+                  <img src="{{ asset('img/tour/tour-stats.jpg') }}" class="img-responsive" alt="tour-stats">
+                  <div class="browser_bottom img-responsive"></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section2"><!--/Section 11 -->
+          <div class="container">
+            <div class="col-sm-6">
+            <h3 class="text-uppercase">SEARCH ENGINE OPTIMIZED</h3>
+            <hr class="separation">
+              <p>Art.space websites include clean artcle links, proper tagging, XML sitemaps, and valid XHTML code. All of which make your website loved by search engines.</p>
+              <div class="col-sm-12">
+              <img src="{{ asset('img/tour/tour-rob-space.jpg') }}" alt="rob-space" class="img-circle img-responsive">
+              <div class="ribbon"><div class="ribbon-text">Rob Space, CEO | <img src="{{ asset('img/icon/icon-wordpress-24-dark.png') }}" alt="rob-space-ceo" > <b>SEO</b>MOZ</div></div>
+              </div>
+              <div class="col-sm-6">
+              <br>
+              <br>
+              <p>The team has put together a remarkable platform. Every aspect of the product - user experience, featurest, SEO friendliness, design and more - all work together to create one of the few content management systems i'm proud to recommend </p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <h3 class="text-uppercase">choose YOUR CONTRIBUTORS</h3>
+              <hr class="separation">
+                <p>Invite contributors to help you manage your website. Set individual permissions, from full admin to a trusted commenter, so you are alwaus in control</p>
+                <img src="{{ asset('img/tour/tour-contributors.png') }}" class="img-responsive" alt="tour-contributors">
+              </div>
+            </div>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+              <h3 class="text-uppercase">CLOUD HOSTING FROM THE BEST</h3>
+              <hr class="separation">
+                <p>With our reliable and scalable coud infrastructure, ther's no downtime, and nothing to install, patch, or upgrade</p>
+                <img src="{{ asset('img/tour/tour-clouds.png') }}" class="img-responsive" alt="tour-clouds">
+                </div>
+                <div class="col-sm-6">
+                  <h3 class="text-uppercase">CUSTOM DOMAIN NAMES   <button class="btn btn-success">FREE</button></h3>
+                    <hr class="separation">
+                    <p>Art.space makes adding your custom domain simple, and every annual account receives a free custom domain.</p>
+                  <img src="{{ asset('img/tour/tour-domain.png') }}" class="img-responsive" alt="">
+                </div>
+            </div>
+          </div>
+          <br>
+        </section>
+        
+{% endblock %}

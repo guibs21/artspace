@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Art Space{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}"/>
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    
+    <body>
+        <header>
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a href="{{ path('homepage') }}"><img src="{{ asset('img/logo.png') }}" alt="logo"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ path('homepage') }}">Tour</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="developers.html">Developers</a></li>
+                    <li><a href="{{ path('pricing') }}">Pricing</a></li>
+                    {% if app.user %}
+                    <li><a href="{{ path('logout') }}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{{ path('login_route') }}">Login</a></li>
+                    <li><a href="{{ path('register') }}">Register</a></li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div><!--/.nav-collapse -->
+            </nav>
+        </header>
+        {% block body %}
+        
+        {% endblock %}
+        <footer class="section3"><!-- footer -->
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+              <h4 class="text-uppercase">PRODUCT</h4>
+              <ul class="list-unstyled">
+                <li><a href="index.html">Tour</a></li>
+                <li><a href="templates.html">Templates</a></li>
+                <li><a href="mobile.html">Mobile Apps</a></li>
+                <li><a href="developers.html">Developers</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="{{ path('register') }}">Sign Up</a></li>
+              </ul>
+              </div>
+              <div class="col-sm-3">
+              <h4 class="text-uppercase">COMPANY</h4>
+              <ul class="list-unstyled">
+                <li><a href="about.html">About</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="press.html">Press & Media</a></li>
+                <li><a href="environmental.html">Environmental Impact</a></li>
+                <li><a href="affiliate.html">Affiliate Program</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+              </div>
+              <div class="col-sm-3">
+              <h4 class="text-uppercase">COMMUNITY</h4>
+              <ul class="list-unstyled">
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="help.html">Help & Support</a></li>
+                <li><a href="answers.html">Answers</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="service.html">Service Updates</a></li>
+                <li><a href="https://twitter.com">Twitter</a></li>
+                <li><a href="https://facebook.com">Facebook</a></li>
+                <li><a href="https://twitter.com">Google+</a></li>
+                <li><a href="https://plus.google.com">Youtube</a></li>
+              </ul>
+              </div>
+              <div class="col-sm-3">
+                <button class="bouton">TRY IT FREE</button>
+                  <p>Free 14-day trial <br>
+                  No credit card required <br>
+                  24/7 support</p>
+                  <img src="{{ asset('img/footer-truste.png') }}" class="img-responsive" alt="footer-truste">
+              </div>
+            </div>
+          </div>
+        </footer>
+        {% block javascripts %}
+            {# JQuery CDN #}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            {# Bootstrap #}
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            {# Touchswipe CDN #}
+            <script src="{{ asset('js/touchswipe.js') }}"></script>
+            {# App #}
+            <script src="{{ asset('js/app.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
