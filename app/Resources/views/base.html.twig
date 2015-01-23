@@ -29,7 +29,7 @@
                     <li><a href="{{ path('homepage') }}">Tour</a></li>
                     <li><a href="templates.html">Templates</a></li>
                     <li><a href="developers.html">Developers</a></li>
-                    <li><a href="{{ path('pricing') }}">Pricing</a></li>
+                    <li><a href="{{ path('produit') }}">Pricing</a></li>
                     {% if app.user %}
                     <li><a href="{{ path('logout') }}">Logout</a></li>
                     {% else %}
@@ -37,8 +37,9 @@
                     <li><a href="{{ path('register') }}">Register</a></li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
-                    <li><a href="#">Admin options</a></li>
-                    <li><a href="{{ path('addProduct') }}">Product</a></li>
+                    <li><a href="#" style="color:red;">Admin options</a></li>
+                    <li><a href="{{ path('produit') }}">Product</a></li>
+                    <li><a href="{{ path('rubrique') }}">Rubrique</a></li>
                     <li><a href="#">Command</a></li>
                     {% endif %}
                   </ul>
@@ -49,6 +50,7 @@
         {% block body %}
         
         {% endblock %}
+        {% block footer %}
         <footer class="section3"><!-- footer -->
           <div class="container">
             <div class="row">
@@ -100,6 +102,7 @@
             </div>
           </div>
         </footer>
+        {% endblock %}
         {% block javascripts %}
             {# JQuery CDN #}
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

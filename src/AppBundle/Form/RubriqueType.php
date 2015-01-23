@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ProduitType extends AbstractType
+class RubriqueType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,19 +15,10 @@ class ProduitType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prix')
-            ->add('option1', 'text')
-            ->add('option2', 'text')
-            ->add('option3', 'text')
-            ->add('option4', 'text')
-            ->add('option5', 'text')
-            ->add('option6', 'text')
-            ->add('option7', 'text')
-            ->add('option8', 'text')
-            ->add('option9', 'text')
-            ->add('option10', 'text')
+            ->add('nom', 'text', array(
+                'label'  => 'Add title : ',))
             ->add('Enregistrer', 'submit', array(
+                'label' => 'Add',
                 "attr" => array(
                     "formnovalidate" => "formnovalidate"
                 )
@@ -41,7 +32,7 @@ class ProduitType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Produit'
+            'data_class' => 'AppBundle\Entity\Rubrique'
         ));
     }
 
@@ -50,6 +41,6 @@ class ProduitType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_produit';
+        return 'appbundle_rubrique';
     }
 }

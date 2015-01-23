@@ -1,0 +1,23 @@
+{#{ form(form) }#}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    rubrique
+{% endblock %}
+
+{% block bodyId %} id="rubrique" {% endblock %}
+{% block body %}
+    <br><br><br><br><br><br>
+    <div class="container">
+        <a href="{{ url('ajout_rubrique') }}">Ajouter rubrique</a>
+            {% for rubrique in rubriques %}
+                <h2>{{ rubrique.nom }}</h2>
+                <p>
+                    <a href="{{ url('supp_rubrique', { 'id' : rubrique.id } ) }}">Supprimer</a>
+                    <a href="{{ url('maj_rubrique', { 'id' : rubrique.id } ) }}">Modifier</a>
+                </p>
+            {% endfor %}
+    </div>
+{% endblock %}
+

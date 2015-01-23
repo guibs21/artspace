@@ -1,0 +1,42 @@
+    <br><br><br><br>
+    <br>
+    <div class="container">
+        
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Option 1</th>
+            <th>Option 2</th>
+            <th>Option 3</th>
+            <th>Option 4</th>
+            <th>Option 5</th>
+            <th>Option 6</th>
+            <th>Option 7</th>
+            <th>Option 8</th>
+            <th>Option 9</th>
+            <th>Option 10</th>
+        </tr>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.option1 }}</td>
+                <td>{{ produit.option2 }}</td>
+                <td>{{ produit.option3 }}</td>
+                <td>{{ produit.option4 }}</td>
+                <td>{{ produit.option5 }}</td>
+                <td>{{ produit.option6 }}</td>
+                <td>{{ produit.option7 }}</td>
+                <td>{{ produit.option8 }}</td>
+                <td>{{ produit.option9 }}</td>
+                <td>{{ produit.option10 }}</td>
+                <td><a href="{{ url('supp_produit', { 'id' : produit.id } ) }}">Supprimer</a></td>
+                <td><a href="{{ url('maj_produit', { 'id' : produit.id } ) }}">Modifier</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+  </div>  
+
+
+

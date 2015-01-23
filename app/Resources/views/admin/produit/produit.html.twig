@@ -1,0 +1,19 @@
+{#{ form(form) }#}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    produit
+{% endblock %}
+
+{% block bodyId %} id="produit" {% endblock %}
+{% block body %}
+    <br><br><br><br><br><br>
+    <div class="container">
+        <p><a href="{{ url('ajout_produit') }}">Ajouter produit</a></p>
+    </div>
+  {% include 'includes/list.html.twig' %}
+ 
+    
+{% endblock %}
+

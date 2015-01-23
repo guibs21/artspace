@@ -1,0 +1,17 @@
+{#{ form(form) }#}
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    {{ parent() }}
+    produit
+{% endblock %}
+
+{% block bodyId %} id="produit" {% endblock %}
+{% block body %}
+    <div class="container">
+  {% include 'includes/list.html.twig' %}
+ </div>
+    
+{% endblock %}
+

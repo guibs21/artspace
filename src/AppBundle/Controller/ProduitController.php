@@ -14,58 +14,103 @@ use AppBundle\Form\ProduitType; // notre form
 
 class ProduitController extends Controller
 {
-    /**
-     * @Route("/pricing", name="pricing")
-     */
-    public function indexAction()
-    {
-        return $this->render('default/pricing.html.twig');
+    
+    
+     /**
+    * @Route(
+    *      "/admin/produit/supprimer/{id}",
+    *      name="supp_produit"
+     * )
+     * 
+    */
+     public function suppAction($id, Request $request) {          
+        
+        $doctrine = $this->getDoctrine();
+        $rc = $doctrine->getRepository('AppBundle:Produit');
+        $em = $doctrine->getManager();
+        
+        $entity = $rc->find($id);
+        
+        $em->remove($entity);
+        $em->flush();
+        
+        $message = 'Le contact a été supprimé.';
+        $request->getSession()->getFlashBag()->set('notice', $message);
+        
+        $url = $this->generateUrl('produit');
+        
+        return $this->redirect($url);
+        
     }
     
+    
     /**
-     * @Route("/admin/addproduct", name="addProduct")
-     */
-    public function addProductAction(Request $request)
-    {
+    * @Route(
+    *      "/admin/produit",
+    *      name="produit"
+     * )
+     * 
+    */
+     public function indexAction() {          
         
-        //ajouter en bdd une nouvelle idée à chaque chargement 
         
-        // creer une instance de notre entité
-        $product = new Produit();
         
-        // creer le formulaire
-        $productForm = $this->createForm( new ProduitType(), $product);
+        $produits = $this->getDoctrine()->getRepository('AppBundle:Produit')->findAll();
         
-        // injecte les donnees soumises dans notre instance de idea
-        $productForm->handleRequest($request);
+        $params =  array(
+           'produits' => $produits
+        );
+        return $this->render('admin/produit/produit.html.twig', $params);
+    }
+    
+    
+    /**
+    * 
+    * @Route(
+    *      "/admin/produit/ajout",
+    *      name="ajout_produit", defaults = { "id" = null }
+    * )
+    * @Route(
+    *      "/admin/produit/maj/{id}",
+    *      name="maj_produit"
+    * )
+    * 
+    * 
+    */
+    public function formAction(Request $request, $id) {          
         
-        // si le formulaire est soumis ET valide
-        if ($productForm->isValid()) {
+        $doctrine = $this->getDoctrine();
+        $em = $doctrine->getManager();
+        $rc = $doctrine->getRepository('AppBundle:Produit');
         
-            // sauvagerde l'entité
-            // recupere l'entity manager
-            $em = $this->getDoctrine()->getManager();
+        if(!$id) {
+            $entity = new Produit();
+            $message = 'Le contact a été ajouté.';
+        }else {
+            $entity = $rc->find($id);
+            $message = 'Le contact a été mis à jour.';
             
-            // demande à doctrine de sauvegarder notre instance
-            $em->persist($product);
+        }
+        
+        $type = new ProduitType();
+        
+        $form = $this->createForm($type, $entity);
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
             
-            // execute les requetes
+            $em->persist($data);
             $em->flush();
             
-            $this->addFlash("success", "Votre produit a bien été enregistrer !!!");
-            
-            // redirige l'utilisateur vers la liste de derrieres
-            /*return $this->redirect( $this->generateUrl('showAllProduct'));*/
+            $request->getSession()->getFlashBag()->set('notice', $message);
         
-    }
+            return $this->redirect($this->generateUrl('produit'));
+        }
         
-        
-        // shoot le formulaire à la vue 
-        // attention à ne pas oublier ->createView()
-        $params = array(
-            "productForm" => $productForm->createView()
+        $params =  array(
+            'produitForm' =>$form->createView()
         );
-        
-        return $this->render('product/add_product.html.twig', $params);
+        return $this->render('admin/produit/ajout_produit.html.twig', $params);
     }
 }

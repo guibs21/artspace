@@ -1,0 +1,89 @@
+{#{ form(form) }#}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    Produit
+{% endblock %}
+{% block body %}
+
+    <form method="POST" {{ form_enctype(form) }} class="form-group" novalidate >
+        <p>
+            {{ form_label(form.nom, 'Nom : ') }}
+            {{ form_widget(form.nom) }}
+            {{ form_errors(form.nom) }}
+        </p>
+        <p>
+            {{ form_label(form.prix, 'Prix : ') }}
+            {{ form_widget(form.prix) }}
+            {{ form_errors(form.prix) }}
+        </p>
+        <p>
+            {{ form_label(form.option1, 'Option 1 : ') }}
+            </br>
+            {{ form_widget(form.option1) }}
+            {{ form_errors(form.option1) }}
+        </p>
+        <p>
+            {{ form_label(form.option2, 'Option 2 : ') }}
+            </br>
+            {{ form_widget(form.option2) }}
+            {{ form_errors(form.option2) }}
+        </p>
+        <p>
+            {{ form_label(form.option3, 'Option 3 : ') }}
+            </br>
+            {{ form_widget(form.option3) }}
+            {{ form_errors(form.option3) }}
+        </p>
+        <p>
+            {{ form_label(form.option4, 'Option 4 : ') }}
+            </br>
+            {{ form_widget(form.option4) }}
+            {{ form_errors(form.option4) }}
+        </p>
+        <p>
+            {{ form_label(form.option5, 'Option 5 : ') }}
+            </br>
+            {{ form_widget(form.option5) }}
+            {{ form_errors(form.option5) }}
+        </p>
+        <p>
+            {{ form_label(form.option6, 'Option 6 : ') }}
+            </br>
+            {{ form_widget(form.option6) }}
+            {{ form_errors(form.option6) }}
+        </p>
+        <p>
+            {{ form_label(form.option7, 'Option 7 : ') }}
+            </br>
+            {{ form_widget(form.option7) }}
+            {{ form_errors(form.option7) }}
+        </p>
+        <p>
+            {{ form_label(form.option8, 'Option 8 : ') }}
+            </br>
+            {{ form_widget(form.option8) }}
+            {{ form_errors(form.option8) }}
+        </p>
+        <p>
+            {{ form_label(form.option9, 'Option 9 : ') }}
+            </br>
+            {{ form_widget(form.option9) }}
+            {{ form_errors(form.option9) }}
+        </p>
+        <p>
+            {{ form_label(form.option10, 'Option 10 : ') }}
+            </br>
+            {{ form_widget(form.option10) }}
+            {{ form_errors(form.option10) }}
+        </p>
+        <p>
+            {{ form_widget(form._token) }}
+            <input type="submit" value="Valider" />
+        </p>
+    </form>
+{% endblock %}
+
+
+
