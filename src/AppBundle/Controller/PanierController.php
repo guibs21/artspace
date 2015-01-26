@@ -5,30 +5,62 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+use Symfony\Component\HttpFoundation\Request;
+
+class PanierController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/panier/ajout/{produitId}", name="ajoutPanier", requirements={"produitId":"\d+"})
      */
-    public function indexAction()
+    public function ajoutPanierAction($produitId)
     {
-        return $this->render('default/index.html.twig');
+        //on récupère l'objet (l'instance) du user connecté
+        $user = $this->getUser();
+
+        //on récupère l'instance du produit à ajouter
+        $produitRepo = $this->getDoctrine()->getRepository("AppBundle:Produit");
+        $produit = $produitRepo->find( $produitId );
+
+        //on ajoute le produit à l'user, et vice-versa
+        $user->ajoutProduit($produit);
+        $produit->addUser($user);
+
+        //on sauvegarde nos objets (contenant les relations) en base
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        //redirige vers la page détail, avec un message
+        $this->addFlash("success", "Le produit a bien été ajouté !");
+        return $this->redirect( $this->generateUrl("viewPanier") );
+    }
+
+
+    /**
+     * @Route("/panier", name="viewPanier")
+     */
+    public function viewPanierAction(){
+        $user = $this->getUser();
+        $produits = $user->getProduits();
+        
+        $params = array(
+            "produits" => $produits
+        );
+        return $this->render("panier/view.html.twig", $params);
     }
     
     /**
-     * @Route("/pricing", name="pricing")
+     * @Route("/panier/supprimer/{id}", name="suppPanier")
      */
-    public function pricingAction()
-    {
-        $doctrine = $this->getDoctrine();
-        $rc = $doctrine->getRepository('AppBundle:Produit');
+    public function suppPanierAction($id) {
+    
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository('AppBundle:Produit')->find($id);
         
-        $produits = $rc->findAll();
+        $produit->removeUser($user);
+        $em->flush();
         
-        $params = array(
-           'produits' => $produits
-        );
+        return $this->redirect($this->generateUrl('viewPanier'));
         
-        return $this->render('default/pricing.html.twig', $params);
     }
 }

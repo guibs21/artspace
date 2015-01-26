@@ -71,6 +71,11 @@ class User implements UserInterface
      */
     private $dateModified;
 
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="users")
+     */
+    private $produits;
 
     /**
      * Get id
@@ -245,5 +250,69 @@ class User implements UserInterface
     
      public function eraseCredentials(){
         //rien à faire ici pour notre cas
+    }
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->produits = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Ajout produits
+     *
+     * @param \AppBundle\Entity\Produit $produits
+     * @return User
+     */
+    public function ajoutProduit(\AppBundle\Entity\Produit $produits)
+    {
+        $this->produits[] = $produits;
+
+        return $this;
+    }
+
+    /**
+     * Supp produits
+     *
+     * @param \AppBundle\Entity\Produit $produits
+     */
+    public function suppProduit(\AppBundle\Entity\Movie $produits)
+    {
+        $this->produits->removeElement($produits);
+    }
+
+    /**
+     * Get produits
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProduits()
+    {
+        return $this->produits;
+    }
+
+    /**
+     * Add produits
+     *
+     * @param \AppBundle\Entity\Produit $produits
+     * @return User
+     */
+    public function addProduit(\AppBundle\Entity\Produit $produits)
+    {
+        $this->produits[] = $produits;
+
+        return $this;
+    }
+
+    /**
+     * Remove produits
+     *
+     * @param \AppBundle\Entity\Produit $produits
+     */
+    public function removeProduit(\AppBundle\Entity\Produit $produits)
+    {
+        $this->produits->removeElement($produits);
     }
 }

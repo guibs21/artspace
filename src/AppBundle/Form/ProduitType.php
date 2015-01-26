@@ -24,15 +24,25 @@ class ProduitType extends AbstractType
                 'multiple' => false,
             ))
             ->add('option1', 'text')
+            ->add('option1Detail', 'text')
             ->add('option2', 'text')
+            ->add('option2Detail', 'text')
             ->add('option3', 'text')
+            ->add('option3Detail', 'text')
             ->add('option4', 'text')
+            ->add('option4Detail', 'text')
             ->add('option5', 'text')
+            ->add('option5Detail', 'text')
             ->add('option6', 'text')
+            ->add('option6Detail', 'text')
             ->add('option7', 'text')
+            ->add('option7Detail', 'text')
             ->add('option8', 'text')
+            ->add('option8Detail', 'text')
             ->add('option9', 'text')
+            ->add('option9Detail', 'text')
             ->add('option10', 'text')
+            ->add('option10Detail', 'text')
             ->add('Enregistrer', 'submit', array(
                 "attr" => array(
                     "formnovalidate" => "formnovalidate"

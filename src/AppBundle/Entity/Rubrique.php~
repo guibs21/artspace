@@ -67,11 +67,11 @@ class Rubrique
      */
     public function __construct()
     {
-        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->produits = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Ajout products
+     * Ajout produits
      *
      * @param \AppBundle\Entity\Produit $produits
      * @return Produit

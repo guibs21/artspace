@@ -25,7 +25,7 @@ class Produit
     /**
      * @var string
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="vous n'avez pas saisie de nom.")
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
@@ -33,7 +33,7 @@ class Produit
     /**
      * @var string
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="vous n'avez pas saisie de prix.")
      * @ORM\Column(name="prix", type="decimal", precision=3, scale=0)
      */
     private $prix;
@@ -48,10 +48,24 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option1Detail", type="string", length=255, nullable=true)
+     */
+    private $option1Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option2", type="string", length=255, nullable=true)
      */
     private $option2;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option2Detail", type="string", length=255, nullable=true)
+     */
+    private $option2Detail;
+    
     /**
      * @var string
      *
@@ -62,10 +76,24 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option3Detail", type="string", length=255, nullable=true)
+     */
+    private $option3Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option4", type="string", length=255, nullable=true)
      */
     private $option4;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option4Detail", type="string", length=255, nullable=true)
+     */
+    private $option4Detail;
+    
     /**
      * @var string
      *
@@ -76,10 +104,24 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option5Detail", type="string", length=255, nullable=true)
+     */
+    private $option5Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option6", type="string", length=255, nullable=true)
      */
     private $option6;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option6Detail", type="string", length=255, nullable=true)
+     */
+    private $option6Detail;
+    
     /**
      * @var string
      *
@@ -90,10 +132,24 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option7Detail", type="string", length=255, nullable=true)
+     */
+    private $option7Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option8", type="string", length=255, nullable=true)
      */
     private $option8;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option8Detail", type="string", length=255, nullable=true)
+     */
+    private $option8Detail;
+    
     /**
      * @var string
      *
@@ -104,15 +160,36 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option9Detail", type="string", length=255, nullable=true)
+     */
+    private $option9Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option10", type="string", length=255, nullable=true)
      */
     private $option10;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="option10Detail", type="string", length=255, nullable=true)
+     */
+    private $option10Detail;
+    
+    /**
     * @ORM\ManyToOne(targetEntity="Rubrique", inversedBy="produits")
     * @ORM\JoinColumn(name="rubrique_id", referencedColumnName="id")
     */
     protected $rubrique;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="produits")
+     * @ORM\JoinTable(name="user_produit")
+     */
+    private $users;
+    
 
     /**
      * Get id
@@ -409,7 +486,7 @@ class Produit
     public function setRubrique(\AppBundle\Entity\Rubrique $rubrique = null)
     {
         $this->rubrique = $rubrique;
-
+        
         return $this;
     }
 
@@ -421,5 +498,46 @@ class Produit
     public function getRubrique()
     {
         return $this->rubrique;
+    }
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add users
+     *
+     * @param \AppBundle\Entity\User $users
+     * @return Produit
+     */
+    public function addUser(\AppBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \AppBundle\Entity\User $users
+     */
+    public function removeUser(\AppBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

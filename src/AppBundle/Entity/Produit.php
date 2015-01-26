@@ -48,10 +48,24 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option1Detail", type="string", length=255, nullable=true)
+     */
+    private $option1Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option2", type="string", length=255, nullable=true)
      */
     private $option2;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option2Detail", type="string", length=255, nullable=true)
+     */
+    private $option2Detail;
+    
     /**
      * @var string
      *
@@ -62,10 +76,24 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option3Detail", type="string", length=255, nullable=true)
+     */
+    private $option3Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option4", type="string", length=255, nullable=true)
      */
     private $option4;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option4Detail", type="string", length=255, nullable=true)
+     */
+    private $option4Detail;
+    
     /**
      * @var string
      *
@@ -76,10 +104,24 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option5Detail", type="string", length=255, nullable=true)
+     */
+    private $option5Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option6", type="string", length=255, nullable=true)
      */
     private $option6;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option6Detail", type="string", length=255, nullable=true)
+     */
+    private $option6Detail;
+    
     /**
      * @var string
      *
@@ -90,10 +132,24 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option7Detail", type="string", length=255, nullable=true)
+     */
+    private $option7Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option8", type="string", length=255, nullable=true)
      */
     private $option8;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option8Detail", type="string", length=255, nullable=true)
+     */
+    private $option8Detail;
+    
     /**
      * @var string
      *
@@ -104,15 +160,36 @@ class Produit
     /**
      * @var string
      *
+     * @ORM\Column(name="option9Detail", type="string", length=255, nullable=true)
+     */
+    private $option9Detail;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="option10", type="string", length=255, nullable=true)
      */
     private $option10;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="option10Detail", type="string", length=255, nullable=true)
+     */
+    private $option10Detail;
+    
+    /**
     * @ORM\ManyToOne(targetEntity="Rubrique", inversedBy="produits")
     * @ORM\JoinColumn(name="rubrique_id", referencedColumnName="id")
     */
     protected $rubrique;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="produits")
+     * @ORM\JoinTable(name="user_produit")
+     */
+    private $users;
+    
 
     /**
      * Get id
@@ -421,5 +498,276 @@ class Produit
     public function getRubrique()
     {
         return $this->rubrique;
+    }
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add users
+     *
+     * @param \AppBundle\Entity\User $users
+     * @return Produit
+     */
+    public function addUser(\AppBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \AppBundle\Entity\User $users
+     */
+    public function removeUser(\AppBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Set option1Detail
+     *
+     * @param string $option1Detail
+     * @return Produit
+     */
+    public function setOption1Detail($option1Detail)
+    {
+        $this->option1Detail = $option1Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option1Detail
+     *
+     * @return string 
+     */
+    public function getOption1Detail()
+    {
+        return $this->option1Detail;
+    }
+
+    /**
+     * Set option2Detail
+     *
+     * @param string $option2Detail
+     * @return Produit
+     */
+    public function setOption2Detail($option2Detail)
+    {
+        $this->option2Detail = $option2Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option2Detail
+     *
+     * @return string 
+     */
+    public function getOption2Detail()
+    {
+        return $this->option2Detail;
+    }
+
+    /**
+     * Set option3Detail
+     *
+     * @param string $option3Detail
+     * @return Produit
+     */
+    public function setOption3Detail($option3Detail)
+    {
+        $this->option3Detail = $option3Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option3Detail
+     *
+     * @return string 
+     */
+    public function getOption3Detail()
+    {
+        return $this->option3Detail;
+    }
+
+    /**
+     * Set option4Detail
+     *
+     * @param string $option4Detail
+     * @return Produit
+     */
+    public function setOption4Detail($option4Detail)
+    {
+        $this->option4Detail = $option4Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option4Detail
+     *
+     * @return string 
+     */
+    public function getOption4Detail()
+    {
+        return $this->option4Detail;
+    }
+
+    /**
+     * Set option5Detail
+     *
+     * @param string $option5Detail
+     * @return Produit
+     */
+    public function setOption5Detail($option5Detail)
+    {
+        $this->option5Detail = $option5Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option5Detail
+     *
+     * @return string 
+     */
+    public function getOption5Detail()
+    {
+        return $this->option5Detail;
+    }
+
+    /**
+     * Set option6Detail
+     *
+     * @param string $option6Detail
+     * @return Produit
+     */
+    public function setOption6Detail($option6Detail)
+    {
+        $this->option6Detail = $option6Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option6Detail
+     *
+     * @return string 
+     */
+    public function getOption6Detail()
+    {
+        return $this->option6Detail;
+    }
+
+    /**
+     * Set option7Detail
+     *
+     * @param string $option7Detail
+     * @return Produit
+     */
+    public function setOption7Detail($option7Detail)
+    {
+        $this->option7Detail = $option7Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option7Detail
+     *
+     * @return string 
+     */
+    public function getOption7Detail()
+    {
+        return $this->option7Detail;
+    }
+
+    /**
+     * Set option8Detail
+     *
+     * @param string $option8Detail
+     * @return Produit
+     */
+    public function setOption8Detail($option8Detail)
+    {
+        $this->option8Detail = $option8Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option8Detail
+     *
+     * @return string 
+     */
+    public function getOption8Detail()
+    {
+        return $this->option8Detail;
+    }
+
+    /**
+     * Set option9Detail
+     *
+     * @param string $option9Detail
+     * @return Produit
+     */
+    public function setOption9Detail($option9Detail)
+    {
+        $this->option9Detail = $option9Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option9Detail
+     *
+     * @return string 
+     */
+    public function getOption9Detail()
+    {
+        return $this->option9Detail;
+    }
+
+    /**
+     * Set option10Detail
+     *
+     * @param string $option10Detail
+     * @return Produit
+     */
+    public function setOption10Detail($option10Detail)
+    {
+        $this->option10Detail = $option10Detail;
+
+        return $this;
+    }
+
+    /**
+     * Get option10Detail
+     *
+     * @return string 
+     */
+    public function getOption10Detail()
+    {
+        return $this->option10Detail;
     }
 }
