@@ -34,7 +34,7 @@ class ProduitController extends Controller
         $em->remove($entity);
         $em->flush();
         
-        $message = 'Le contact a été supprimé.';
+        $message = 'Le produit a été supprimé.';
         $request->getSession()->getFlashBag()->set('notice', $message);
         
         $url = $this->generateUrl('produit');
@@ -85,10 +85,10 @@ class ProduitController extends Controller
         
         if(!$id) {
             $entity = new Produit();
-            $message = 'Le contact a été ajouté.';
+            $message = 'Le produit a été ajouté.';
         }else {
             $entity = $rc->find($id);
-            $message = 'Le contact a été mis à jour.';
+            $message = 'Le produit a été mis à jour.';
             
         }
         

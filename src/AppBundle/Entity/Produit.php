@@ -25,7 +25,7 @@ class Produit
     /**
      * @var string
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="vous n'avez pas saisie de nom.")
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
@@ -33,8 +33,8 @@ class Produit
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="prix", type="string", length=255)
+     * @Assert\NotBlank(message="vous n'avez pas saisie de prix.")
+     * @ORM\Column(name="prix", type="decimal", precision=3, scale=0)
      */
     private $prix;
 
@@ -108,6 +108,11 @@ class Produit
      */
     private $option10;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="Rubrique", inversedBy="produits")
+    * @ORM\JoinColumn(name="rubrique_id", referencedColumnName="id")
+    */
+    protected $rubrique;
 
     /**
      * Get id
@@ -393,5 +398,28 @@ class Produit
     public function getOption10()
     {
         return $this->option10;
+    }
+
+    /**
+     * Set rubrique
+     *
+     * @param \AppBundle\Entity\Rubrique $rubrique
+     * @return Produit
+     */
+    public function setRubrique(\AppBundle\Entity\Rubrique $rubrique = null)
+    {
+        $this->rubrique = $rubrique;
+        
+        return $this;
+    }
+
+    /**
+     * Get rubrique
+     *
+     * @return \AppBundle\Entity\Rubrique 
+     */
+    public function getRubrique()
+    {
+        return $this->rubrique;
     }
 }

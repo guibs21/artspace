@@ -341,3 +341,12 @@ hr {
 .img-responsive {
   display: inline-block;
 }
+
+
+/*********************************************
+ *                centre produit              *
+ *********************************************/
+
+.center-block-prod {
+    float: none;
+}

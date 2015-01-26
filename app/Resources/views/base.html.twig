@@ -29,9 +29,10 @@
                     <li><a href="{{ path('homepage') }}">Tour</a></li>
                     <li><a href="templates.html">Templates</a></li>
                     <li><a href="developers.html">Developers</a></li>
-                    <li><a href="{{ path('produit') }}">Pricing</a></li>
+                    <li><a href="{{ path('pricing') }}">Pricing</a></li>
                     {% if app.user %}
                     <li><a href="{{ path('logout') }}">Logout</a></li>
+                    <li><a href="#">Panier</a></li>
                     {% else %}
                     <li><a href="{{ path('login_route') }}">Login</a></li>
                     <li><a href="{{ path('register') }}">Register</a></li>

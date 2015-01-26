@@ -11,133 +11,81 @@
         </div>
       </div>
     </section>
-    <section><!--/Section 1 -->
+
+
+    
+    
+    <section><!--/test 1 -->
       <div class="container" >
-        <div class="row">
-          <div class="col-sm-6"><br>
+        <div class="row">    
+{% for produit in produits %}
+
+          <div class="col-sm-6   "><br>
               <a href="">
                 <div class="pricing">
-                    <h1 class="text-uppercase">Perso</h1>
+                    <h1 class="text-uppercase">{{ produit.nom }}</h1>
                     <hr>
-                    <span class="exposant">$ </span><span class="big">2</span><span>/MO</span><br>
-                    <span>Billed annualy or $10 month-to-month</span>
+                    <span class="exposant">$ </span><span class="big">{{ produit.prix }}</span><span>/MO</span><br>
+                    <span>Billed annualy or ${{ produit.prix * 1.5 }} month-to-month</span>
                 </div>
               </a>
-              <p id="1" class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>20 Pages, Galleries & blogs</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">20 Pages, Galleries & blogs</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>500 GB Bandwidth</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">500 GB Bandwidth</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>2 GB Storage</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">2 GB Storage</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Custom Domain</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Custom Domain</p>
+              {% if produit.option1 is null %}
+
+            {% else %}
+              <p id="1" class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option1 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option1 }}</p>
+               {% endif %}
+               {% if produit.option2 is null %}
+
+               {% else %}
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option2 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option2 }}</p>
+              {% endif %}
+              {% if produit.option3 is null %}
+
+               {% else %}
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option3 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option3 }}</p>
+              {% endif %}
+              {% if produit.option4 is null %}
+
+               {% else %}
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option4 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option4 }}</p>
+              {% endif %}
+              {% if produit.option5 is null %}
+
+               {% else %}
               <div class="circle2">FREE</div>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>24/7 Support</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">24/7 Support</p>
-          </div><br>
-            <div class="col-sm-6">
-                <a href="">
-                    <div class="pricing">
-                    <h1 class="text-uppercase">Perso</h1>
-                    <hr>
-                    <span class="circleBig"><span>MOST POPULAR</span></span>
-                    <span class="exposant">$ </span><span class="big">4</span><span>/MO</span><br>
-                    <span>Billed annualy or $20 month-to-month</span>
-                    </div>
-                </a>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited, Galleries & blogs</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited, Galleries & blogs</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Bandwidth</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong class="yo">Unlimited Bandwidth</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Storage</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited Storage</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Contributors</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited Contributors</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Custom Domain</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Custom Domain</p>
-              <div class="circle2">FREE</div>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Advanced Form Builder</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Advanced Form Builder</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Google Apps & Mailchimp Sync</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Google Apps & Mailchimp Sync</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Publish to Facebook Pages</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Publish to Facebook Pages</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>24/7 Support</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">24/7 Support</p>
-              </div>
-            </div>
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option5 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option5 }}</p>
+              {% endif %}
+              {% if produit.option6 is null %}
+
+               {% else %}
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option6 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option6 }}</p>
+              {% endif %}
+              {% if produit.option7 is null %}
+
+               {% else %}
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option7 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option7 }}</p>
+              {% endif %}
+              {% if produit.option8 is null %}
+
+               {% else %}
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option8 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option8 }}</p>
+              {% endif %}
+              {% if produit.option9 is null %}
+
+               {% else %}
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option9 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option9 }}</p>
+              {% endif %}
+              {% if produit.option10 is null %}
+
+               {% else %}
+              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>{{ produit.option10 }}</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">{{ produit.option10 }}</p>
+              {% endif %}
           </div>
-    </section>
-    <section><!--/Section 1 -->
-      <div class="container" >
-        <div class="row">
-          <div class="col-sm-6"><br>
-              <a href="">
-                <div class="pricing">
-                    <h1 class="text-uppercase">Pro</h1>
-                    <hr>
-                    <span class="exposant">$ </span><span class="big">6</span><span>/MO</span><br>
-                    <span>Billed annualy or $10 month-to-month</span>
-                </div>
-              </a>
-              <p id="1" class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>20 Pages, Galleries & blogs</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">20 Pages, Galleries & blogs</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>500 GB Bandwidth</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">500 GB Bandwidth</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>2 GB Storage</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">2 GB Storage</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Custom Domain</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Custom Domain</p>
-              <div class="circle2">FREE</div>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>24/7 Support</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">24/7 Support</p>
-          </div><br>
-            <div class="col-sm-6">
-                <a href="#"><div class="pricing">
-              <h1 class="text-uppercase">Pro</h1>
-              <hr>
-              <span class="circleBig"><span>MOST POPULAR</span></span>
-              <span class="exposant">$ </span><span class="big">8</span><span>/MO</span><br>
-              <span>Billed annualy or $20 month-to-month</span>
-              </div></a>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited, Galleries & blogs</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited, Galleries & blogs</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Bandwidth</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong class="yo">Unlimited Bandwidth</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Storage</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited Storage</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Contributors</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited Contributors</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Custom Domain</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Custom Domain</p>
-              <div class="circle2">FREE</div>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Advanced Form Builder</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Advanced Form Builder</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Google Apps & Mailchimp Sync</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Google Apps & Mailchimp Sync</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Publish to Facebook Pages</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Publish to Facebook Pages</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>24/7 Support</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">24/7 Support</p>
-              </div>
-            </div>
-          </div>
-    </section>
-    <section><!--/Section 1 -->
-      <div class="container" >
-        <div class="row">
-          <div class="col-sm-6"><br>
-              <a href="">
-                <div class="pricing">
-                    <h1 class="text-uppercase">Performance</h1>
-                    <hr>
-                    <span class="exposant">$ </span><span class="big">12</span><span>/MO</span><br>
-                    <span>Billed annualy or $10 month-to-month</span>
-                </div>
-              </a>
-              <p id="1" class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>20 Pages, Galleries & blogs</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">20 Pages, Galleries & blogs</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>500 GB Bandwidth</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">500 GB Bandwidth</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>2 GB Storage</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">2 GB Storage</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Custom Domain</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Custom Domain</p>
-              <div class="circle2">FREE</div>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>24/7 Support</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">24/7 Support</p>
-          </div><br>
-            <div class="col-sm-6">
-                <a href="">
-                    <div class="pricing">
-                        <h1 class="text-uppercase">Performance</h1>
-                        <hr>
-                        <span class="circleBig"><span>MOST POPULAR</span></span>
-                        <span class="exposant">$ </span><span class="big">16</span><span>/MO</span><br>
-                        <span>Billed annualy or $20 month-to-month</span>
-                    </div>
-                </a>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited, Galleries & blogs</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited, Galleries & blogs</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Bandwidth</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong class="yo">Unlimited Bandwidth</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Storage</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited Storage</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Unlimited Contributors</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p"><strong>Unlimited Contributors</strong></p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Custom Domain</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Custom Domain</p>
-              <div class="circle2">FREE</div>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Advanced Form Builder</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Advanced Form Builder</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Google Apps & Mailchimp Sync</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Google Apps & Mailchimp Sync</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>Publish to Facebook Pages</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">Publish to Facebook Pages</p>
-              <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='img/icon/Curation_bar_icon_info_16x16.png' alt='info' style='display:flex'><h4>24/7 Support</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus voluptas totam porro cupiditate provident cum vitae. Quod molestias et alias nostrum quidem impedit cumque earum nam minima repudiandae excepturi.</p">24/7 Support</p>
-              </div>
-            </div>
-          </div>
-    </section>
+{% endfor %}    
+</section>    
+<br>    
+    
+    
     <section class="section2"><!--/Section 2 -->
       <div class="container">
         <div class="row">

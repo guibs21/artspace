@@ -17,6 +17,12 @@ class ProduitType extends AbstractType
         $builder
             ->add('nom')
             ->add('prix')
+            ->add('rubrique', 'entity', array(
+                'class' => 'AppBundle:Rubrique',
+                'property' => 'nom',
+                'empty_value' => '',
+                'multiple' => false,
+            ))
             ->add('option1', 'text')
             ->add('option2', 'text')
             ->add('option3', 'text')

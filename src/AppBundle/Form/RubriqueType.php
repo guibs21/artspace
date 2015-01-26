@@ -16,7 +16,7 @@ class RubriqueType extends AbstractType
     {
         $builder
             ->add('nom', 'text', array(
-                'label'  => 'Add title : ',))
+                'label'  => 'Ajout rubrique : '))
             ->add('Enregistrer', 'submit', array(
                 'label' => 'Add',
                 "attr" => array(
