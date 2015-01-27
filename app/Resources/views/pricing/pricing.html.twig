@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="section1"><!--/Bannière -->
+    <div id="banner2">
+        <div class="container">
+            <div class="middle">
+                <h1 class="text-uppercase">Free 14-day trial with 24/7 support.</h1>
+                <button class="btn-black">Get started</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section><!--/test 1 -->
+    <div class="container" >
+        <div class="row">
+            {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                <p class="alert alert-success" role="alert">Vous devez vous connecter pour commander</p>
+            {% endif %}
+{% for produit in produits %}
+            <div class="col-sm-6   "><br>
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('pricingDetail') }}">
+                {% elseif is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('pricingDetail') }}">
+                {% endif %}
+                        <div class="pricing">
+                            <h1 class="text-uppercase">{{ produit.nom }}</h1>
+                            <hr>
+                            <span class="exposant">$ </span><span class="big">{{ produit.prix }}</span><span>/MO</span><br>
+                            <span>Billed annualy or ${{ produit.prix * 1.25 }} month-to-month</span>
+                        </div>
+                    </a>
+            {% if produit.option1 is null %}
+
+            {% else %}
+                <p id="1" class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}'  alt='info' style='display:flex'><h4>{{ produit.option1 }}</h4><p>{{ produit.option1Detail }}</p">{{ produit.option1 }}</p>
+            {% endif %}
+            {% if produit.option2 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option2 }}</h4><p>{{ produit.option2Detail }}</p">{{ produit.option2 }}</p>
+            {% endif %}
+            {% if produit.option3 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option3 }}</h4><p>{{ produit.option3Detail }}</p">{{ produit.option3 }}</p>
+            {% endif %}
+            {% if produit.option4 is null %}
+
+            {% else %}
+            <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option4 }}</h4><p>{{ produit.option4Detail }}</p">{{ produit.option4 }}</p>
+            {% endif %}
+            {% if produit.option5 is null %}
+
+            {% else %}
+            <div class="circle2">FREE</div>
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option5 }}</h4><p>{{ produit.option5Detail }}</p">{{ produit.option5 }}</p>
+            {% endif %}
+            {% if produit.option6 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option6 }}</h4><p>{{ produit.option6Detail }}</p">{{ produit.option6 }}</p>
+            {% endif %}
+            {% if produit.option7 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option7 }}</h4><p>{{ produit.option7Detail }}</p">{{ produit.option7 }}</p>
+            {% endif %}
+            {% if produit.option8 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option8 }}</h4><p>{{ produit.option8Detail }}</p">{{ produit.option8 }}</p>
+            {% endif %}
+            {% if produit.option9 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option9 }}</h4><p>{{ produit.option9Detail }}</p">{{ produit.option9 }}</p>
+            {% endif %}
+            {% if produit.option10 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ produit.option10 }}</h4><p>{{ produit.option10Detail }}</p">{{ produit.option10 }}</p>
+            {% endif %}
+        </div>
+{% endfor %}    
+</section>    
+<br>    
+<section class="section2"><!--/Section 2 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">how long are your contacts?</h3>
+                <p>Art.space plans are month-to month, yearly, or two years. We make it simple to start - and stop - your service at any time </p>
+            </div>
+            <div class="col-sm-6">
+            <h3 class="text-uppercase horizontal-rule">how do i sign up?</h3>
+                <p>your start with a free trial. We don't collect your credit card until you've determineted Squarespace is the right product for you.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">is there a discount for yearly service?</h3>
+                <p>Yes, we offer discounts on up-front long-term commitments</p>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">how do i cancel service?</h3>
+                <p>Cancelling Art.space is an easy and no-questions-asked process. It's done online right from your site manager.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">do i need another web host?</h3>
+                <p>No. All Art.space plans include our fully-managed cloud hosting, ensuring your website remains avaible at all times.</p>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">can i switch plans?</h3>
+                <p>Yes, at any time, in your website manager. When upgrading or downgrading your website plan, you will receive either a pro-rated charge or refun, depending on the cost of your new plan.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">can i download squarespace?</h3>
+                <p>No. Art.space is a fully-managed web service. We do not have plans to make a downloadable version. Art.space does provide many standard methods for exporting your data.</p>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">What is meant by unlimited?</h3>
+                <p>Certain Art.space packages do not have ressource limits for normal usage. As per our Terms of Service, sites cannot exist for the sole purpose of file sharing.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">Do you offer email accounts?</h3>
+                <p>While Art.space does not provide email accounts, you can easily link your domain to Google Apps and get ree email.</p>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="text-uppercase horizontal-rule">have more questions?</h3>
+                <p>Our support team is avaible 24/7 and usually responds in well under an hour. Visit our <span class="text-green">Help & Support Center</span> to contact them.</p>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+</section>
+{% endblock %}

@@ -53,8 +53,6 @@ class ProduitController extends Controller
     */
      public function indexAction() {          
         
-        
-        
         $produits = $this->getDoctrine()->getRepository('AppBundle:Produit')->findAll();
         
         $params =  array(
@@ -75,7 +73,6 @@ class ProduitController extends Controller
     *      name="maj_produit"
     * )
     * 
-    * 
     */
     public function formAction(Request $request, $id) {          
         
@@ -89,7 +86,6 @@ class ProduitController extends Controller
         }else {
             $entity = $rc->find($id);
             $message = 'Le produit a été mis à jour.';
-            
         }
         
         $type = new ProduitType();
@@ -98,6 +94,7 @@ class ProduitController extends Controller
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()) {
+            
             $data = $form->getData();
             
             $em->persist($data);
