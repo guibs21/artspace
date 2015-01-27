@@ -18,6 +18,7 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/commande, roles: ROLE_USER }
         - { path: ^/user, roles: ROLE_USER }
+        - { path: ^/pricing, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
     encoders:
         AppBundle\Entity\User:

@@ -5,8 +5,8 @@
     {{ parent() }}
     Produit
 {% endblock %}
-{% block body %}
 
+{% block body %}
     <form method="POST" {{ form_enctype(form) }} class="form-group" novalidate >
         <p>
             {{ form_label(form.nom, 'Nom : ') }}

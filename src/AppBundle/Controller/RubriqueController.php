@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Entity\Rubrique;
-use AppBundle\Form\RubriqueType;
+
 
 class RubriqueController extends Controller
 {
