@@ -32,15 +32,16 @@
                     {% if app.user %}
                     <li><a href="{{ path('logout') }}">Logout</a></li>
                     <li><a href="{{ path('viewPanier') }}">Panier</a></li>
+                    <li><a href="{{ path('commande') }}">Commande</a></li>
                     {% else %}
                     <li><a href="{{ path('login_route') }}">Login</a></li>
                     <li><a href="{{ path('register') }}">Register</a></li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
                     <li><a href="#" style="color:red;">Admin options</a></li>
-                    <li><a href="{{ path('produit') }}">Produit</a></li>
-                    <li><a href="{{ path('rubrique') }}">Rubrique</a></li>
-                    <li><a href="#">Commande</a></li>
+                    <li><a href="{{ path('produit') }}" style="color:red;">Produit</a></li>
+                    <li><a href="{{ path('rubrique') }}" style="color:red;">Rubrique</a></li>
+                    
                     {% endif %}
                   </ul>
                 </div>
