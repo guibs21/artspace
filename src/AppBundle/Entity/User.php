@@ -51,12 +51,20 @@ class User implements UserInterface
     private $salt;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="token", type="string", length=30)
+     */
+    private $token;
+    
+    /**
      * @var array
      *
      * @ORM\Column(name="roles", type="array")
      */
     private $roles;
-
+    
+    
     /**
      * @var \DateTime
      *
@@ -71,11 +79,6 @@ class User implements UserInterface
      */
     private $dateModified;
 
-    
-    /**
-     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="users")
-     */
-    private $produits;
 
     /**
      * Get id
@@ -91,7 +94,7 @@ class User implements UserInterface
      * Set username
      *
      * @param string $username
-     * @return User
+     * @return user
      */
     public function setUsername($username)
     {
@@ -114,7 +117,7 @@ class User implements UserInterface
      * Set email
      *
      * @param string $email
-     * @return User
+     * @return user
      */
     public function setEmail($email)
     {
@@ -137,7 +140,7 @@ class User implements UserInterface
      * Set password
      *
      * @param string $password
-     * @return User
+     * @return user
      */
     public function setPassword($password)
     {
@@ -160,7 +163,7 @@ class User implements UserInterface
      * Set salt
      *
      * @param string $salt
-     * @return User
+     * @return user
      */
     public function setSalt($salt)
     {
@@ -177,6 +180,80 @@ class User implements UserInterface
     public function getSalt()
     {
         return $this->salt;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     * @return user
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string 
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set dateRegistered
+     *
+     * @param \DateTime $dateRegistered
+     * @return user
+     */
+    public function setDateRegistered($dateRegistered)
+    {
+        $this->dateRegistered = $dateRegistered;
+
+        return $this;
+    }
+
+    /**
+     * Get dateRegistered
+     *
+     * @return \DateTime 
+     */
+    public function getDateRegistered()
+    {
+        return $this->dateRegistered;
+    }
+
+    /**
+     * Set dateModified
+     *
+     * @param \DateTime $dateModified
+     * @return user
+     */
+    public function setDateModified($dateModified)
+    {
+        $this->dateModified = $dateModified;
+
+        return $this;
+    }
+    
+    public function eraseCredentials()
+     {
+        
+     } 
+
+    /**
+     * Get dateModified
+     *
+     * @return \DateTime 
+     */
+    public function getDateModified()
+    {
+        return $this->dateModified;
     }
 
     /**
@@ -201,118 +278,13 @@ class User implements UserInterface
     {
         return $this->roles;
     }
-
-    /**
-     * Set dateRegistered
-     *
-     * @param \DateTime $dateRegistered
-     * @return User
-     */
-    public function setDateRegistered($dateRegistered)
-    {
-        $this->dateRegistered = $dateRegistered;
-
-        return $this;
-    }
-
-    /**
-     * Get dateRegistered
-     *
-     * @return \DateTime 
-     */
-    public function getDateRegistered()
-    {
-        return $this->dateRegistered;
-    }
-
-    /**
-     * Set dateModified
-     *
-     * @param \DateTime $dateModified
-     * @return User
-     */
-    public function setDateModified($dateModified)
-    {
-        $this->dateModified = $dateModified;
-
-        return $this;
-    }
-
-    /**
-     * Get dateModified
-     *
-     * @return \DateTime 
-     */
-    public function getDateModified()
-    {
-        return $this->dateModified;
-    }
-    
-     public function eraseCredentials(){
-        //rien à faire ici pour notre cas
-    }
-    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->produits = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->commands = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Ajout produits
-     *
-     * @param \AppBundle\Entity\Produit $produits
-     * @return User
-     */
-    public function ajoutProduit(\AppBundle\Entity\Produit $produits)
-    {
-        $this->produits[] = $produits;
-
-        return $this;
-    }
-
-    /**
-     * Supp produits
-     *
-     * @param \AppBundle\Entity\Produit $produits
-     */
-    public function suppProduit(\AppBundle\Entity\Movie $produits)
-    {
-        $this->produits->removeElement($produits);
-    }
-
-    /**
-     * Get produits
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getProduits()
-    {
-        return $this->produits;
-    }
-
-    /**
-     * Add produits
-     *
-     * @param \AppBundle\Entity\Produit $produits
-     * @return User
-     */
-    public function addProduit(\AppBundle\Entity\Produit $produits)
-    {
-        $this->produits[] = $produits;
-
-        return $this;
-    }
-
-    /**
-     * Remove produits
-     *
-     * @param \AppBundle\Entity\Produit $produits
-     */
-    public function removeProduit(\AppBundle\Entity\Produit $produits)
-    {
-        $this->produits->removeElement($produits);
-    }
+    
 }

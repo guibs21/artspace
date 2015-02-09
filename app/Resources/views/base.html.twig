@@ -9,7 +9,9 @@
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
+
+<body>
+
         <header>
             <!-- Fixed navbar -->
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -26,31 +28,33 @@
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ path('homepage') }}">Tour</a></li>
-                    <li><a href="templates.html">Templates</a></li>
-                    <li><a href="developers.html">Developers</a></li>
-                    <li><a href="{{ path('pricing') }}">Pricing</a></li>
+                    <li><a href="#">Templates</a></li>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="{{ path('offers') }}">Pricing</a></li>
                     {% if app.user %}
                     <li><a href="{{ path('logout') }}">Logout</a></li>
-                    <li><a href="{{ path('viewPanier') }}">Panier</a></li>
-                    <li><a href="{{ path('commande') }}">Commande</a></li>
+                    <li><a href="{{ path('viewCart') }}">Panier</a></li>
+                    <li><a href="{{ path('commands') }}">Commande</a></li>
                     {% else %}
-                    <li><a href="{{ path('login_route') }}">Login</a></li>
+                    <li><a href="{{ path('login') }}">Login</a></li>
                     <li><a href="{{ path('register') }}">Register</a></li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
-                    <li><a href="#" style="color:red;">Admin options</a></li>
-                    <li><a href="{{ path('produit') }}" style="color:red;">Produit</a></li>
-                    <li><a href="{{ path('rubrique') }}" style="color:red;">Rubrique</a></li>
-                    
+                    <li><a href="#" style="color:#ACCE55;">Admin options</a></li>
+                    <li><a href="{{ path('produit') }}" style="color:#ACCE55;">Produit</a></li>
+                    <li><a href="{{ path('rubrique') }}" style="color:#ACCE55;">Rubrique</a></li>
+
                     {% endif %}
                   </ul>
                 </div>
               </div><!--/.nav-collapse -->
             </nav>
         </header>
-        {% block body %}
-        
-        {% endblock %}
+
+
+
+    {% block body %}{% endblock %}
+
         {% block footer %}
         <footer class="section3"><!-- footer -->
           <div class="container">
@@ -59,34 +63,34 @@
               <h4 class="text-uppercase">PRODUCT</h4>
               <ul class="list-unstyled">
                 <li><a href="{{ path('homepage') }}">Tour</a></li>
-                <li><a href="templates.html">Templates</a></li>
-                <li><a href="mobile.html">Mobile Apps</a></li>
-                <li><a href="developers.html">Developers</a></li>
-                <li><a href="{{ path('pricing') }}">Pricing</a></li>
+                <li><a href="#">Templates</a></li>
+                <li><a href="#">Mobile Apps</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="{{ path('offers') }}">Pricing</a></li>
                 <li><a href="{{ path('register') }}">Sign Up</a></li>
               </ul>
               </div>
               <div class="col-sm-3">
               <h4 class="text-uppercase">COMPANY</h4>
               <ul class="list-unstyled">
-                <li><a href="about.html">About</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="press.html">Press & Media</a></li>
-                <li><a href="environmental.html">Environmental Impact</a></li>
-                <li><a href="affiliate.html">Affiliate Program</a></li>
-                <li><a href="terms.html">Terms of Service</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press & Media</a></li>
+                <li><a href="#">Environmental Impact</a></li>
+                <li><a href="#">Affiliate Program</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact Us</a></li>
               </ul>
               </div>
               <div class="col-sm-3">
               <h4 class="text-uppercase">COMMUNITY</h4>
               <ul class="list-unstyled">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="help.html">Help & Support</a></li>
-                <li><a href="answers.html">Answers</a></li>
-                <li><a href="workshops.html">Workshops</a></li>
-                <li><a href="service.html">Service Updates</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Help & Support</a></li>
+                <li><a href="#">Answers</a></li>
+                <li><a href="#">Workshops</a></li>
+                <li><a href="#">Service Updates</a></li>
                 <li><a href="https://twitter.com">Twitter</a></li>
                 <li><a href="https://facebook.com">Facebook</a></li>
                 <li><a href="https://twitter.com">Google+</a></li>

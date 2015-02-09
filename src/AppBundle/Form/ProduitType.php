@@ -15,11 +15,11 @@ class ProduitType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prix')
-            ->add('rubrique', 'entity', array(
-                'class' => 'AppBundle:Rubrique',
-                'property' => 'nom',
+            ->add('name')
+            ->add('price')
+            ->add('offer', 'entity', array(
+                'class' => 'AppBundle:Offers',
+                'property' => 'name',
                 'empty_value' => '',
                 'multiple' => false,
             ))
@@ -50,14 +50,14 @@ class ProduitType extends AbstractType
             ))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Produit'
+            'data_class' => 'AppBundle\Entity\Products'
         ));
     }
 
@@ -66,6 +66,6 @@ class ProduitType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_produit';
+        return 'appbundle_products';
     }
 }

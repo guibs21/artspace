@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+    <div class="container">
+        <h1>Historique des commandes de {{ app.user.username }}</h1>
+            <table class="table table-striped table-bordered">
+                {% for command in commands %}
+                <tr>
+                    <th>Commande n° : {{command.id}}</th>
+                    <th>Commande du {{command.dateCommand | date("d-m-Y h:i")}}</th>
+                    <th>Total de la commande  : {{command.total }} $</th>
+                    <th><a href="{{ path('detailsCommands', {'commandId':command.id}) }}">Details de la commande </th>
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+{% endblock  %}

@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section>
+    <div class="container" >
+        <div class="row">
+            <div class="col-sm-4">
+                {% if  is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                    <a href="{{ path('addToCart', {'productId':product.id}) }}">
+                {% else %}
+                    <p class="alert alert-info">Vous devez vous connecter pour commander</p>
+                {% endif %}
+                    <div class="pricing">
+                        <h1 class="text-uppercase">{{ product.name }}</h1>
+                        <hr>
+                        <span class="exposant">$ </span><span class="big">{{ product.price }}</span><span>/MO</span><br>
+                        <span>Billed annualy or ${{ product.price * 1.25 }} month-to-month</span>
+                    </div>
+                </a>
+            {% if product.option1 is null %}
+
+            {% else %}
+                <p id="1" class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}'  alt='info' style='display:flex'><h4>{{ product.option1 }}</h4><p>{{ product.option1Detail }}</p">{{ product.option1 }}</p>
+            {% endif %}
+            {% if product.option2 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option2 }}</h4><p>{{ product.option2Detail }}</p">{{ product.option2 }}</p>
+            {% endif %}
+            {% if product.option3 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option3 }}</h4><p>{{ product.option3Detail }}</p">{{ product.option3 }}</p>
+            {% endif %}
+            {% if product.option4 is null %}
+
+            {% else %}
+            <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option4 }}</h4><p>{{ product.option4Detail }}</p">{{ product.option4 }}</p>
+            {% endif %}
+            {% if product.option5 is null %}
+
+            {% else %}
+            <div class="circle2">FREE</div>
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option5 }}</h4><p>{{ product.option5Detail }}</p">{{ product.option5 }}</p>
+            {% endif %}
+            {% if product.option6 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option6 }}</h4><p>{{ product.option6Detail }}</p">{{ product.option6 }}</p>
+            {% endif %}
+            {% if product.option7 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option7 }}</h4><p>{{ product.option7Detail }}</p">{{ product.option7 }}</p>
+            {% endif %}
+            {% if product.option8 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option8 }}</h4><p>{{ product.option8Detail }}</p">{{ product.option8 }}</p>
+            {% endif %}
+            {% if product.option9 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option9 }}</h4><p>{{ product.option9Detail }}</p">{{ product.option9 }}</p>
+            {% endif %}
+            {% if product.option10 is null %}
+
+            {% else %}
+                <p class="list-pricing" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='{{ asset('img/icon/Curation_bar_icon_info_16x16.png') }}' alt='info' style='display:flex'><h4>{{ product.option10 }}</h4><p>{{ product.option10Detail }}</p">{{ product.option10 }}</p>
+            {% endif %}
+            </div><br>
+            <div class="col-sm-8">
+                <h1 class="text-center"><em>{{ product.name }}</em></h1>
+                <p>Prix : <em class="text-muted">{{ product.price }} &#36;</em></p>
+                {% if product.option1 is null %}
+
+                {% else %}
+                <h3>Option 1</h3>
+                <p>Titre : <em class="text-muted">{{ product.option1 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option1Detail }}</em></p>
+                {% endif %}
+                {% if product.option2 is null %}
+
+                {% else %}
+                <h3>Option 2</h3>
+                <p>Titre : <em class="text-muted">{{ product.option2 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option2Detail }}</em></p>
+                {% endif %}
+                {% if product.option3 is null %}
+
+                {% else %}
+                <h3>Option 3</h3>
+                <p>Titre : <em class="text-muted">{{ product.option3 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option3Detail }}</em></p>
+                {% endif %}
+                {% if product.option4 is null %}
+
+                {% else %}
+                <h3>Option 4</h3>
+                <p>Titre : <em class="text-muted">{{ product.option4 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option4Detail }}</em></p>
+                {% endif %}
+                {% if product.option5 is null %}
+
+                {% else %}
+                <h3>Option 5</h3>
+                <p>Titre : <em class="text-muted">{{ product.option5 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option5Detail }}</em></p>
+                {% endif %}
+                {% if product.option6 is null %}
+
+                {% else %}
+                <h3>Option 6</h3>
+                <p>Titre : <em class="text-muted">{{ product.option6 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option6Detail }}</em></p>
+                {% endif %}
+                {% if product.option7 is null %}
+
+                {% else %}
+                <h3>Option 7</h3>
+                <p>Titre : <em class="text-muted">{{ product.option7 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option7Detail }}</em></p>
+                {% endif %}
+                {% if product.option8 is null %}
+
+                {% else %}
+                <h3>Option 8</h3>
+                <p>Titre : <em class="text-muted">{{ product.option8 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option8Detail }}</em></p>
+                {% endif %}
+                {% if product.option9 is null %}
+
+                {% else %}
+                <h3>Option 9</h3>
+                <p>Titre : <em class="text-muted">{{ product.option9 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option9Detail }}</em></p>
+                {% endif %}
+                {% if product.option10 is null %}
+
+                {% else %}
+                <h3>Option 10</h3>
+                <p>Titre : <em class="text-muted">{{ product.option10 }}</em></p>
+                <p>Detail : <em class="text-muted">{{ product.option10Detail }}</em></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+         <div class="container">
+             <div class="row">
+                 <a class="btn btn-primary" href="{{ path('offers') }}">Retour sur les Rubriques</a>
+             </div>
+         </div>
+   {% endblock %}
+

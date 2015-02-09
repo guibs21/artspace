@@ -6,8 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use AppBundle\Entity\Rubrique;
-
+use AppBundle\Entity\Offers;
+use AppBundle\Form\RubriqueType;
 
 class RubriqueController extends Controller
 {
@@ -16,7 +16,7 @@ class RubriqueController extends Controller
      */
     public function indexAction()
     {
-        $rubriques = $this->getDoctrine()->getRepository('AppBundle:Rubrique')->findAll();
+        $rubriques = $this->getDoctrine()->getRepository('AppBundle:Offers')->findAll();
 
             $params = array(
                 'rubriques' => $rubriques
@@ -24,21 +24,21 @@ class RubriqueController extends Controller
 
         return $this->render('admin/rubrique/rubrique.html.twig', $params);
     }
-    
+
     /**
     *  @Route("/admin/rubrique/ajout", name="ajout_rubrique", defaults = { "id" = null })
     *
     *  @Route("/admin/rubrique/maj_rubrique/{id}", name="maj_rubrique")
-    * 
+    *
     */
     public function formAction(Request $request, $id) {
 
         $doctrine = $this->getDoctrine();
         $em = $doctrine->getManager();
-        $rc = $doctrine->getRepository('AppBundle:Rubrique');
+        $rc = $doctrine->getRepository('AppBundle:Offers');
 
         if(!$id) {
-            $rubrique = new Rubrique();
+            $rubrique = new Offers();
         }else {
             $rubrique = $rc->find($id);
         }
@@ -48,7 +48,7 @@ class RubriqueController extends Controller
 
         // injecte les données soumises dans notre instance de Product
         $rubriqueForm->handleRequest($request);
-            
+
         //si le formulaire est soumis et valide
         if ($rubriqueForm->isValid() && $rubriqueForm->isValid()) {
 
@@ -77,8 +77,8 @@ class RubriqueController extends Controller
     public function suppAction($id) {
 
         $doctrine = $this->getDoctrine();
-        $rc = $doctrine->getRepository('AppBundle:Rubrique');
-            
+        $rc = $doctrine->getRepository('AppBundle:Offers');
+
         $entity = $rc->find($id);
 
         $em = $doctrine->getManager();
@@ -86,5 +86,5 @@ class RubriqueController extends Controller
         $em->flush();
 
         return $this->redirect($this->generateUrl('rubrique'));
-    }    
+    }
 }

@@ -1,10 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    {{ parent() }}
+    Inscription
+{% endblock %}
+
+
 {% block body %}
-    <br><br><br>
+    <br><br><br><br>
+    <br><br>
     <div class="container">
-        <h1>Register</h1>
-        {# affiche le formulaire d'inscription #}
+       
         {{ form(registrationForm) }}
+       
     </div>
 {% endblock %}
